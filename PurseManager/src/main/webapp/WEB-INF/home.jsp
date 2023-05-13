@@ -24,6 +24,10 @@ Purse Id: <input type = "text" name = "pid"/>
 <input type = "submit" value="Add purse"/>
 
 </form>
+<form action = "delete.do" method = "POST">
+Delete Purse By Id: <input type= "text" name= "purseId"/>
+<input type = "submit" value="Delete"/>
+</form>
 
 
 

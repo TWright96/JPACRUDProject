@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.pursespackage.data.PurseDAO;
 import com.skilldistillery.pursespackage.entities.Purse;
@@ -43,17 +45,32 @@ public class PurseController {
 	}
 
 	@GetMapping(path = { "added.do" })
-	public String addedPurse(Model model) {
-		
-		Purse purse = null;
-		purse = purseDao.create(purse);
-		model.addAttribute("purse", purse);
+	public String addedPurse(Purse purse, Model model) {
+		model.addAttribute("purse", purseDao.create(purse));
 		return "singlePurse";
-
 	}
 
+	@RequestMapping(path = { "delete.do" }, method= RequestMethod.POST)
+	public String deletePurse(Integer purseId, Model model) {
+		model.addAttribute("purse", purseDao.deleteById(purseId));
+		return "purseList";
+	}
+
+	@RequestMapping(path = { "edit.do" }, method= RequestMethod.POST)
+	public String updatePurse(@RequestParam Integer purseId, Model model) {
+		Purse purse = purseDao.findById(purseId);
+	     model.addAttribute("purse", purse);
+	     System.out.println(purse + "*************");
+		return "edit";
+	}
+
+	@RequestMapping(path = { "edited.do" }, method= RequestMethod.POST)
+	public String updatedPurse(Purse purse, Model model, Integer purseId) {
+		System.out.println("**********************" + purse);
+	model.addAttribute("purse", purseDao.update(purseId, purse));
+	
+		return "singlePurse";
+	}
 }
 
-// add
-// delete
-// update
+//TO DO: Redirect to page

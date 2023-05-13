@@ -8,6 +8,18 @@
 </head>
 <body>
 <h1>Purse Details</h1>
-${purse}
+${purse.color}
+${purse.brand}
+${purse.style}
+${purse.size}
+
+<form action= "edit.do" method="POST">
+
+<input type = "hidden" name= "purseId" value="${purse.id}"/>
+<input type = "submit" value="Edit"/>
+</form>
+
 </body>
+
+<a href="home.do">back home</a>
 </html>
