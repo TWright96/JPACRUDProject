@@ -13,7 +13,7 @@ import com.skilldistillery.pursespackage.entities.Purse;
 @Service
 @Transactional
 public class PurseDaoImpl implements PurseDAO {
-	
+
 	@PersistenceContext
 	private EntityManager em;
 
@@ -30,20 +30,44 @@ public class PurseDaoImpl implements PurseDAO {
 
 	@Override
 	public Purse create(Purse purse) {
-		// TODO Auto-generated method stub
-		return null;
+
+		
+		em.persist(purse);
+		
+		return purse;
+
 	}
 
 	@Override
 	public Purse update(int purseId, Purse purse) {
-		// TODO Auto-generated method stub
-		return null;
+		
+
+		Purse purse1 = em.find(Purse.class, purseId);
+		purse1.setColor(purse.getColor());
+		purse1.setBrand(purse.getBrand());
+		purse1.setStyle(purse.getStyle());
+		purse1.setSize(purse.getSize());
+		purse1.setMaterial(purse.getMaterial());
+		purse1.setPicture(purse.getPicture());
+		purse1.setPrice(purse.getPrice());
+		
+	
+
+		return purse1;
+
 	}
 
 	@Override
 	public boolean deleteById(int purseId) {
-		// TODO Auto-generated method stub
+		Purse purse = em.find(Purse.class, purseId);
+		em.remove(purse); // performs the delete on the managed entity
+
+		if(purse == null) {
+			return true;
+	}else {
 		return false;
+	}
+	
 	}
 
 }
