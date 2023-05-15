@@ -50,10 +50,10 @@ public class PurseController {
 		return "singlePurse";
 	}
 
-	@RequestMapping(path = { "delete.do" }, method= RequestMethod.POST)
+	@GetMapping(path = { "delete.do" })
 	public String deletePurse(Integer purseId, Model model) {
 		model.addAttribute("purse", purseDao.deleteById(purseId));
-		return "purseList";
+		return "deleted";
 	}
 
 	@RequestMapping(path = { "edit.do" }, method= RequestMethod.POST)
@@ -73,4 +73,3 @@ public class PurseController {
 	}
 }
 
-//TO DO: Redirect to page
