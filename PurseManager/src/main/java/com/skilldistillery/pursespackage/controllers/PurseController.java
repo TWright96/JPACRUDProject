@@ -29,6 +29,7 @@ public class PurseController {
 	public String getPurse(Integer pid, Model model) {
 		Purse purse = purseDao.findById(pid);
 		model.addAttribute("purse", purse);
+		System.out.println("%%%%%%%%%%%%%%%%%%%%%%"+ purse);
 		return "singlePurse";
 	}
 

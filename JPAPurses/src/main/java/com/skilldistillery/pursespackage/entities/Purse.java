@@ -1,6 +1,7 @@
 package com.skilldistillery.pursespackage.entities;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +23,7 @@ public class Purse {
 	@Column(name="purse_image_url")
 	private String picture;
 	@Column(name="date_last_cleaned")
-	private LocalDateTime dateCleaned;
+	private Date dateCleaned;
 	@Column(name="purchase_price")
 	private double price;
 	
@@ -35,7 +36,7 @@ public class Purse {
 
 
 	public Purse(int id, String color, String brand, String style, String size, String material, String picture,
-			LocalDateTime dateCleaned, double price) {
+			Date dateCleaned, double price) {
 		super();
 		this.id = id;
 		this.color = color;
@@ -134,13 +135,13 @@ public class Purse {
 
 
 
-	public LocalDateTime getDateCleaned() {
+	public Date getDateCleaned() {
 		return dateCleaned;
 	}
 
 
 
-	public void setDateCleaned(LocalDateTime dateCleaned) {
+	public void setDateCleaned(Date dateCleaned) {
 		this.dateCleaned = dateCleaned;
 	}
 

@@ -34,6 +34,7 @@ Purchase Price: ${purse.price}<br>
 </form>
 <jsp:include page="footer.jsp"/>
 </body>
+<a href="home.do">back home</a><br>
+<a href="getPurses.do">Purse List</a><br>
 
-<a href="home.do">back home</a>
 </html>

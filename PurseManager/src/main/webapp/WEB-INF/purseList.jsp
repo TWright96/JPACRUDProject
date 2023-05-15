@@ -11,7 +11,6 @@
 <style> 
  body {
   background-image: url("https://img.freepik.com/premium-vector/abstract-smooth-blur-pink-blue-mesh-color-gradient-background-website-banner-paper_120819-974.jpg");
-  background-color: #cccccc;
 } 
 </style> 
 <body>
